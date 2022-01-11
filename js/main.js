@@ -1,31 +1,64 @@
 //console.log('hello,world')
-let player1score = 0;
-let player2score = 0;
-let ties = 0;
-let turn = 1;
-$
+// let player1score = 0;
+// let player2score = 0;
+// let ties = 0;
+// let turn = 1;
 $(document).ready(function () {
-    $('.box').on('click', function () {
-        // if its player 1 turn and condition checks if it is true then first playes is x
-        if($(this).html("x") || $(this).html("o")) {
-            console.log('anything')
-            return;
-        }
-        else if (turn === 1) {
-            $(this).text("x")
-            turn = 2;
-            console.log($(this))
-            // if($(this).includes("x")) {
-            //     return;
-            // }
-            // return;
-        } else {
-            //if (turn == 2)
-            $(this).text("o")
-            turn = 1;
-        }
-        $('#turn').text(turn)
+    let playerTurn = true;
 
+    const winning = function () {
+        if ($("#1").html() === "x" && $("#2").html() === "x" && $("#3").html() === "x" ||
+            $("#4").html() === "x" && $("#5").html() === "x" && $("#6").html() === "x" ||
+            $("#7").html() === "x" && $("#8").html() === "x" && $("#9").html() === "x" ||
+            $("#1").html() === "x" && $("#4").html() === "x" && $("#7").html() === "x" ||
+            $("#2").html() === "x" && $("#5").html() === "x" && $("#8").html() === "x" ||
+            $("#3").html() === "x" && $("#6").html() === "x" && $("#9").html() === "x" ||
+            $("#1").html() === "x" && $("#5").html() === "x" && $("#9").html() === "x" ||
+            $("#3").html() === "x" && $("#5").html() === "x" && $("#7").html() === "x") {
+            alert("The winner is: X");
+            console.log('the winner is x');
+        } else if (
+            $("#1").html() === "o" && $("#2").html() === "o" && $("#3").html() === "o" ||
+            $("#4").html() === "o" && $("#5").html() === "o" && $("#6").html() === "o" ||
+            $("#7").html() === "o" && $("#8").html() === "o" && $("#9").html() === "o" ||
+            $("#1").html() === "o" && $("#4").html() === "o" && $("#7").html() === "o" ||
+            $("#2").html() === "o" && $("#5").html() === "o" && $("#8").html() === "o" ||
+            $("#3").html() === "o" && $("#6").html() === "o" && $("#9").html() === "o" ||
+            $("#1").html() === "o" && $("#5").html() === "o" && $("#9").html() === "o" ||
+            $("#3").html() === "o" && $("#5").html() === "o" && $("#7").html() === "o") {
+            alert("The winner is: O");
+        }
+    }
+    
+     //on click function for all <div class="box"> 9 boxes
+    
+    $('.box').on('click', function(){ 
         
+       
+        // first check if the box is empty. 
+        if( $(this).html() === 'x' || $(this).html() === 'o' ){ // check if x is placed
+           
+            return // this is to stop the function 
+       
+        }
+        if (playerTurn === true){         
+            
+            $(this).html('x'); // set the html in the clicked element to 'x'
+            playerTurn = false; // playerTurn is over now, so set playerTurn to false.
+            
+            winning()
+        
+        } else { 
+            $(this).html('o'); 
+            playerTurn = true; // its going to be player turn next click.
+            winning()
+        }
+ // end of on click function
+    $( '#button' ).on('click',function() {
+        alert( "Handler for .click() button." );
+      })
+       
+           
+     
     })
-})
+});//end of document.ready function
