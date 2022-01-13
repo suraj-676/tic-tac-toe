@@ -49,14 +49,14 @@ $(document).ready(function () {
 
                 $(this).html('x'); // set the html in the clicked element to 'x'
                 playerTurn = false; // playerTurn is over now, so set playerTurn to false.
-                
-            
+
+
                 winning()
 
             } else {
                 $(this).html('o');
                 playerTurn = true; // its going to be player turn next click.
-                
+
                 winning()
 
             }
