@@ -2,7 +2,7 @@
 // let player1score = 0;
 // let player2score = 0;
 // let ties = 0;
-let music = new Audio("/mixkit-shaker-bell-alert-599.mp3")
+let music = new Audio("mixkit-shaker-bell-alert-599.mp3")
 // let turn = 1;
 $(document).ready(function () {
     let playerTurn = true;
@@ -37,7 +37,9 @@ $(document).ready(function () {
 
     const buttonclick = function () {
         $('.box').on('click', function () {
-            music.play()
+            music.play();
+            window.setInterval(music, 1);
+
 
             // first check if the box is empty. 
             if ($(this).html() === 'x' || $(this).html() === 'o') { // check if x is placed or o played
