@@ -16,9 +16,8 @@ $(document).ready(function () {
             $("#3").html() === "x" && $("#6").html() === "x" && $("#9").html() === "x" ||
             $("#1").html() === "x" && $("#5").html() === "x" && $("#9").html() === "x" ||
             $("#3").html() === "x" && $("#5").html() === "x" && $("#7").html() === "x") {
-            $(".popup").addClass("show");
-
-            //console.log('the winner is x');
+            $(".popup").addClass("show").html();// if player x win then this pop will come
+           // column and rows to check player x position
         } else if (
             $("#1").html() === "o" && $("#2").html() === "o" && $("#3").html() === "o" ||
             $("#4").html() === "o" && $("#5").html() === "o" && $("#6").html() === "o" ||
@@ -28,29 +27,29 @@ $(document).ready(function () {
             $("#3").html() === "o" && $("#6").html() === "o" && $("#9").html() === "o" ||
             $("#1").html() === "o" && $("#5").html() === "o" && $("#9").html() === "o" ||
             $("#3").html() === "o" && $("#5").html() === "o" && $("#7").html() === "o") {
-            $(".popup1").addClass("show");
-            //console.log('playTurn')
+            $(".popup1").addClass("show");//if payer o win then this popup comes
+            // column and rows to check player o position
         }
     }
 
 
-    // click function start to check player x  and o position
+            // click function start to check player x  and o position
     const buttonclick = function () {
         $('.box').on('click', function () {
 
             music.play()
 
-            // first check if the box is empty. 
+           // if statement start to checks player x and o turn one by one
             if ($(this).html() === 'x' || $(this).html() === 'o') { // check if x is placed or o played
 
-                return // this is to stop the function 
+                return // return to stop the function 
 
             }
             if (playerTurn === true) {
 
                 $(this).html('x'); // set the html in the clicked element to 'x'
-                playerTurn = false; // playerTurn is over now, so set playerTurn to false.
-
+                playerTurn = false; 
+            // player turn over
 
                 winning()
 
@@ -58,16 +57,16 @@ $(document).ready(function () {
                 $(this).html('o');
                 playerTurn = true; // its going to be player turn next click.
 
-                winning()
+                winning()// winnig to check x is winner or o
 
             }
         })
     }
-    // end of on click function
+    
     $('#up').on('click', function () {
-        $(".popup").removeClass("show")// on restart button the pop will hide for x
+        $(".popup").removeClass("show")// to show image popup
         $('.box').html('')
-        $(".popup1").removeClass("show"); // on restart button the pop will hide for o
+        $(".popup1").removeClass("show");
         // end of on click function
 
     });
