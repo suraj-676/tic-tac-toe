@@ -2,7 +2,7 @@
 // let player1score = 0;
 // let player2score = 0;
 // let ties = 0;
-let music = new Audio("mixkit-shaker-bell-alert-599.mp3")
+let music = new Audio("mixkit-quick-jump-arcade-game-239.wav")
 // let turn = 1;
 $(document).ready(function () {
     let playerTurn = true;
@@ -16,7 +16,7 @@ $(document).ready(function () {
             $("#3").html() === "x" && $("#6").html() === "x" && $("#9").html() === "x" ||
             $("#1").html() === "x" && $("#5").html() === "x" && $("#9").html() === "x" ||
             $("#3").html() === "x" && $("#5").html() === "x" && $("#7").html() === "x") {
-            $(".popup").addClass("show").html();
+            $(".popup").addClass("show");
 
             //console.log('the winner is x');
         } else if (
@@ -29,17 +29,16 @@ $(document).ready(function () {
             $("#1").html() === "o" && $("#5").html() === "o" && $("#9").html() === "o" ||
             $("#3").html() === "o" && $("#5").html() === "o" && $("#7").html() === "o") {
             $(".popup1").addClass("show");
-            // alert("The winner is: O");
+            //console.log('playTurn')
         }
     }
 
-    //on click function for all <div class="box"> 9 boxes
 
+    // click function start to check player x  and o position
     const buttonclick = function () {
         $('.box').on('click', function () {
-            music.play();
-            window.setInterval(music, 1);
 
+            music.play()
 
             // first check if the box is empty. 
             if ($(this).html() === 'x' || $(this).html() === 'o') { // check if x is placed or o played
@@ -66,9 +65,9 @@ $(document).ready(function () {
     }
     // end of on click function
     $('#up').on('click', function () {
-        $(".popup").removeClass("show")
+        $(".popup").removeClass("show")// on restart button the pop will hide for x
         $('.box').html('')
-        $(".popup1").removeClass("show");
+        $(".popup1").removeClass("show"); // on restart button the pop will hide for o
         // end of on click function
 
     });
