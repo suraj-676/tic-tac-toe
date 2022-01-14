@@ -113,13 +113,14 @@ h3 {
 .board {
     width: 60px;
     height: 60px;
-    background: rgb(35, 15, 218);
+    background: hsl(305deg 100% 25% / 42%);
     animation: mymove 3s infinite;
     padding-top: 40px;
   }
   
   @keyframes mymove {
-    50% {background: rgb(255, 94, 0) bottom right/50px 50px;}
+    50% {background: right bottom / 50px 50px rgb(10 2 2);
+    }
 
     
   }
@@ -162,7 +163,6 @@ img{
     font-size: 5rem;
     padding-top: 10px;
     border: 3px solid black;
-    background-color: green;
-   
-   
-}    
+    background-color: aliceblue;
+
+}
